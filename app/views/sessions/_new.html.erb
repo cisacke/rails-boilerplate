@@ -1,0 +1,25 @@
+<div class="modal fade" id="signIn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="session_errors_div"></div>
+        <%= form_for(@user, :url => url_for(:controller => 'sessions', :action => 'create'), remote: true) do |f| %>
+          <strong><%= f.label "Email" %></strong>
+          <br>
+          <%= f.text_field :email, class: "text-input" %>
+          <br>
+          <div class="spacer-small"></div>
+          <strong><%= f.label "Password" %></strong>
+          <br>
+          <%= f.password_field :password, class: "text-input" %>
+          <br>
+          <div class="spacer-medium"></div>
+          <%= f.submit "Sign In", class: "cta-button" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,18 +1,20 @@
-<%# navigation styled for Bootstrap 4.0 %>
-<div class="container">
-  <nav class="navbar navbar-dark bg-inverse">
-    <ul class="nav navbar-nav clearfix">
-      <li class="nav-item">
-        <button class="navbar-toggler hidden-sm-up nav-link" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2" aria-controls="exCollapsingNavbar2" aria-expanded="false" aria-label="Toggle navigation">
-          &#9776;
-        </button>
-      </li>
-    </ul>
-    <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
-      <%= link_to "Rails bootstrap", root_path, class: 'navbar-brand' %>
-      <ul class="nav navbar-nav">
-        <%= render 'layouts/navigation_links' %>
-      </ul>
+<nav class="nav-wrapper">
+  <div class="nav">
+    <a href="#">twzzlr</a>
+    <div class="actions">
+      <% if @is_signed_in %>
+        <form action="<%= session_url %>" method="post">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+          <input type="hidden" name="_method" value="delete">
+          <button class="sign-out">sign out</button>
+        </form>
+      <% else %>
+        <button data-toggle="modal" data-target="#signIn">Sign In</button>
+        <button data-toggle="modal" data-target="#signUp">Sign Up</button>
+      <% end %>
     </div>
-  </nav>
-</div>
+
+    <%= render partial: 'sessions/new' %>
+    <%= render partial: 'users/new' %>
+  </div>
+</nav>

@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
 end
 ruby '2.4.1'
 gem 'rails', '~> 5.1.4'
+gem 'bcrypt'
 gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -24,13 +25,19 @@ group :development do
 end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'bootstrap-sass'
+gem 'paperclip'
+gem 'aws-sdk', '2.10.47'
+gem 'figaro'
 gem 'high_voltage'
 gem 'jquery-rails'
+gem 'octicons_helper'
 gem 'pg'
 group :development do
   gem 'better_errors'
   gem 'rails_layout'
   gem 'spring-commands-rspec'
+  gem 'pry'
 end
 group :development, :test do
   gem 'factory_girl_rails'
@@ -41,3 +48,4 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
 end
+gem 'rails_12factor', group: :production

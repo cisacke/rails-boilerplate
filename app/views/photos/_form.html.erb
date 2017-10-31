@@ -1,0 +1,13 @@
+<div class="photos-form">
+  <%= form_for(@photo, multipart: true, remote: true) do |f| %>
+    <div id="photos_error"></div>
+
+    <div class="field">
+      <%= f.label :image %>
+      <%= f.file_field :image %>
+    </div>
+    <div class="actions">
+      <%= f.submit 'Upload photo' %>
+    </div>
+  <% end %>
+</div>

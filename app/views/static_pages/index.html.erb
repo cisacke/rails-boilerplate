@@ -1,0 +1,14 @@
+<%= render partial: "layouts/navigation", :locals => {is_signed_in: @is_signed_in} %>
+
+<div class="main">
+  <p id="notice"><%= notice %></p>
+  <% if @currently_signed_in %>
+    <%= render partial: "photos/form", :locals => {photo: @photo} %>
+  <% end %>
+
+  <%= render partial: "photos/show", :locals => {photos: @photos, is_signed_in: @is_signed_in} %>
+</div>
+
+
+<%= render partial: "layouts/footer" %>
+

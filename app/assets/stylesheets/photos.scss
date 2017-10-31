@@ -1,0 +1,40 @@
+.image {
+  max-width: 600px;
+  margin: auto;
+  margin-bottom: 60px;
+
+  &:last-child {
+    margin-bottom: 0
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+.image-header, .image-footer {
+  height: 60px;
+  background: white;
+  border: 1px solid;
+  align-items: center;
+  display: flex;
+  padding: 0 20px;
+}
+
+.image-header {
+  border-bottom: none;
+}
+
+.image-footer {
+  border-top: none;
+  justify-content: space-between;
+}
+
+.photos-form {
+  background: white;
+  max-width: 600px;
+  margin: auto;
+  margin-bottom: 20px;
+  border: 1px solid;
+  padding: 20px;
+}

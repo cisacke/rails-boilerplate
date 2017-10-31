@@ -1,0 +1,43 @@
+<div class="photos">
+  <% @photos.each {|photo| %>
+    <div class="image">
+      <div class="image-header">
+        <%= photo.user.f_name %> <%= photo.user.l_name %>
+      </div>
+      <img src="<%= photo.image.url %>" />
+      <div class="image-footer">
+        <% if @is_signed_in %>
+          <div class="upvotes-input">
+            <%= form_for(@user, :url => url_for(:controller => 'upvotes', :action => 'create'), remote: true) do |f| %>
+              <%= f.hidden_field :photo, value: photo.id  %>
+              <%= f.hidden_field :value, value: 1  %>
+              <button class="icon-input">
+                <%= octicon "thumbsup", :height => 25,  :class => "right left" %>
+              </button>
+            <% end %>
+            <%= form_for(@user, :url => url_for(:controller => 'upvotes', :action => 'create'), remote: true) do |f| %>
+              <%= f.hidden_field :photo, value: photo.id  %>
+              <%= f.hidden_field :value, value: -1  %>
+              <button class="icon-input">
+                <%= octicon "thumbsdown", :height => 25,  :class => "right left" %>
+              </button>
+            <% end %>
+          </div>
+        <% end %>
+        <span id="upvotes_count_<%= photo.id %>">
+          <%= render partial: "upvotes/count", :locals => { photo: photo } %>
+        </span>
+
+        <% if belongs_to_current_user(photo) %>
+          <form action="<%= photos_url %>/<%= photo.id %>" method="post">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <input type="hidden" name="_method" value="delete">
+            <button class="icon-input">
+              <%= octicon "trashcan", :height => 28,  :class => "right left" %>
+            </button>
+          </form>
+        <% end %>
+      </div>
+    </div>
+  <% } %>
+</div>

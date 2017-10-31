@@ -1,0 +1,27 @@
+.nav-wrapper, .nav {
+  height: 77px;
+}
+
+.nav {
+  max-width: 1010px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.actions {
+  button, input {
+    background: white;
+    border: 1px solid;
+    padding: 8px 12px;
+    margin-left: 12px;
+    cursor: pointer;
+
+    &:hover {
+      background: black;
+      color: white;
+    }
+  }
+
+}
